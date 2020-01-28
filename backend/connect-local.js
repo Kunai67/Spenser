@@ -1,17 +1,22 @@
-let mongoose = require('mongoose');
-const Expense = require('./models/expense');
+const express = require('express');
+const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/expenses-db', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+const port = 27017;
+
+const app = express();
+app.use(express.json());
+
+mongoose.connect(`mongodb://localhost:${port}/expenses-db`, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
 const conn = mongoose.connection;
 
 conn.on('error', (err) => console.log(err));
 conn.once('open', function() {
-    const newExpense = new Expense({
-        name: 'Kwek-kwek',
-        cost: 15.0,
-        tags: ['necessities', 'food']
-    });
-
-    newExpense.save().catch((err) => console.log(err));
+    console.log('Connected to Database');
 });
+
+const expenseRouter = require('./routes/expense');
+
+app.use('/expenses', expenseRouter);
+
+app.listen(port, () => `Listening on port: ${port}`);
