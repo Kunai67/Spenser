@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddCategoryModal from './AddCategoryModal';
+import AddCategoryModal from './category/AddCategoryModal';
 
 export default class ExpenseForm extends Component {
     constructor(props) {
