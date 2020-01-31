@@ -40,4 +40,10 @@ Router.route('/update/:id').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+Router.route('/tags/:tagName').get((req, res) => {
+    Expense.find({ tags: req.params.tagName })
+        .then(expense => res.json(expense))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
 module.exports = Router;
