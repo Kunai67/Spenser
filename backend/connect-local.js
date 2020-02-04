@@ -16,7 +16,10 @@ conn.once('open', function() {
 });
 
 const expenseRouter = require('./routes/expense');
+const categoryRouter = require('./routes/category');
 
 app.use('/expenses', expenseRouter);
+app.use('/category', categoryRouter);
+
 
 app.listen(port, () => `Listening on port: ${port}`);
