@@ -7,8 +7,6 @@ const app = express();
 app.use(express.json());
 
 mongoose.connect(`mongodb://localhost:${port}/expense-db`, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
-// mongoose.connect(`mongodb://localhost:${port}/`, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
-
 const conn = mongoose.connection;
 
 conn.on('error', (err) => console.log(err));

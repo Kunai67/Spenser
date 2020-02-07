@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class AddCategoryModal extends Component {
     constructor(props) {
@@ -14,19 +15,8 @@ export default class AddCategoryModal extends Component {
     }
     
     componentDidMount() {  
-        fetch('https://5e21946c6867a0001416f53a.mockapi.io/spenser/api/getCategories',
-        {
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-             }
-        })
-        .then((response) => {
-            return response.json();
-        })
-        .then((json) => {
-            this.setState({categories: json.category});
-        });
+        axios.get('https://5e21946c6867a0001416f53a.mockapi.io/spenser/api/getCategories')
+        .then(response => this.setState({categories : response.data.category}));
     }
 
     onChange(e) {
