@@ -15,8 +15,9 @@ export default class AddCategoryModal extends Component {
     }
     
     componentDidMount() {  
-        axios.get('https://5e21946c6867a0001416f53a.mockapi.io/spenser/api/getCategories')
-        .then(response => this.setState({categories : response.data.category}));
+        axios.get('http://localhost:5000/category/')
+        // .then(response => this.setState({categories : response.data.category}));
+        .then(res => console.log(res.data));
     }
 
     onChange(e) {

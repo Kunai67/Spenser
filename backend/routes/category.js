@@ -4,7 +4,7 @@ const Category = require('../models/category.models');
 
 Router.route('/').get((req, res) => {
     Category.find()
-        .then(expense => res.json(expense))
+        .then(category => res.json(category))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
