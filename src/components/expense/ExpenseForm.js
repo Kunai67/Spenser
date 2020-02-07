@@ -8,7 +8,7 @@ export default class ExpenseForm extends Component {
         this.state = {
              name: "",
              date: new Date(),
-             category: [],
+             tags: [],
              cost: 0
         }
 
@@ -19,8 +19,20 @@ export default class ExpenseForm extends Component {
 
     submitExpense(e) {
         e.preventDefault();
-        // AJAX Code to Send to DB
-        console.log(this.state);
+        fetch('http://localhost:5000/expenses/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(this.state),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+        alert('Success:', data);
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
     }
 
     onChange(e) {
@@ -30,7 +42,7 @@ export default class ExpenseForm extends Component {
     }
 
     changeCategory(categoryArr) {
-        this.setState({category: categoryArr});
+        this.setState({tags: categoryArr});
     }
     
     render() {

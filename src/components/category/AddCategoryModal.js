@@ -37,7 +37,7 @@ export default class AddCategoryModal extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        this.props.setCategory({category: this.state.categoriesToBeAdded});
+        this.props.setCategory(this.state.categoriesToBeAdded);
     }
 
     render() {
