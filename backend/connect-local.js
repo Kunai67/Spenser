@@ -39,6 +39,4 @@ app.use(function (req, res, next) {
 app.use('/expenses', expenseRouter);
 app.use('/category', categoryRouter);
 
-
-
 app.listen(5000, () => `Listening on port: 5000`);

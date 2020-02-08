@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddCategoryModal from '../category/AddCategoryModal';
+// import AddCategoryModal from '../category/AddCategoryModal';
 import axios from 'axios';
 
 export default class ExpenseForm extends Component {
@@ -10,7 +10,7 @@ export default class ExpenseForm extends Component {
              name: "",
              date: new Date(),
              tags: [],
-             cost: 0
+             cost: ""
         }
 
         this.submitExpense = this.submitExpense.bind(this);
@@ -40,7 +40,7 @@ export default class ExpenseForm extends Component {
             <form>
                 <input type="text" placeholder="Expense Name" name="name" value={this.state.name} onChange={this.onChange}/>
                 <input type="text" placeholder="Price / Cost" name="cost" value={this.state.cost} onChange={this.onChange}/>
-                <AddCategoryModal setCategory={this.changeCategory}/>
+                {/* <AddCategoryModal setCategory={this.changeCategory}/> */}
                 <button onClick={this.submitExpense}>Submit</button>
             </form>
         )
