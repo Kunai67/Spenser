@@ -25,7 +25,7 @@ export default class ExpenseList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/expenses')
+        axios.get(this.props.onMountURL)
         .then(res => {
             this.setState({ expenses : res.data });
             console.log(this.state);

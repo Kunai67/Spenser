@@ -16,8 +16,7 @@ export default class AddCategoryModal extends Component {
     
     componentDidMount() {  
         axios.get('http://localhost:5000/category/')
-        // .then(response => this.setState({categories : response.data.category}));
-        .then(res => console.log(res.data));
+        .then(res => this.setState({categories : res.data}));
     }
 
     onChange(e) {
@@ -38,12 +37,12 @@ export default class AddCategoryModal extends Component {
                 <div className="categories">
                     {
                         this.state.categories.map((category) => 
-                        <fieldset key={category}>
-                            <input type="checkbox" value={category} onClick={this.onChange} />{category}
+                        <fieldset key={category._id}>
+                            <input type="checkbox" value={category.name} onClick={this.onChange} />{category.name}
                         </fieldset>)
                     }
                 </div>
-                <button onClick={ this.onSubmit }>Submit</button>
+                <button onClick={ this.onSubmit }>Submit Categories</button>
             </div>
         )
     }

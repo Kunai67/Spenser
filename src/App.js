@@ -9,6 +9,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import AddCategory from './components/category/AddCategory';
 
 function App() {
   return (
@@ -36,19 +37,19 @@ function App() {
 function Home() {
   return <div>
     <h2>Home</h2>
-    <ExpenseList />
+    <ExpenseList onMountURL='http://localhost:5000/expenses'/>
   </div>;
 }
 
 function CategoriesPage() {
-  return <h2>About</h2>;
+  return <AddCategory />
 }
 
 function ExpensesPage() {
   return (
     <div>
       <h2>Add New Expense</h2>
-      <ExpenseForm />
+      <ExpenseForm/>
     </div>
   );
 }
