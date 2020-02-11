@@ -6,10 +6,17 @@ export default class AddCategory extends Component {
         super(props)
     
         this.state = {
-             name : ''
+             name : '',
+             tags: []
         }
 
         this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:5000/category/')
+        .then(res => this.setState({ tags: res.data }));
     }
 
     onChange(e) {
@@ -26,6 +33,13 @@ export default class AddCategory extends Component {
     render() {
         return (
             <div>
+                {
+                    this.state.tags.map((tag) => 
+                        <div key={tag._id}>
+                            <a href={`http://localhost:3000/categories/${tag.name}`}>{tag.name}</a>
+                        </div>)
+                }
+
                 <input onChange={(e) => this.onChange(e)} type="text"/>
                 <button onClick={(e) => this.onSubmit(e)}>Submit</button>
             </div>

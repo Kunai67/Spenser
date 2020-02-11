@@ -28,7 +28,6 @@ export default class ExpenseList extends Component {
         axios.get(this.props.onMountURL)
         .then(res => {
             this.setState({ expenses : res.data });
-            console.log(this.state);
         });
     }
 

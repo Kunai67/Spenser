@@ -8,8 +8,10 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  useParams,
 } from "react-router-dom";
 import AddCategory from './components/category/AddCategory';
+import ViewExpenseByCategory from './components/category/ViewExpenseByCategory';
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
       <Nav />
       <Container>
         <Switch>
+          <Route path="/categories/:tagName">
+            <ViewExpenseByCategoryPage />
+          </Route>
           <Route path="/categories">
             <CategoriesPage />
           </Route>
@@ -52,6 +57,12 @@ function ExpensesPage() {
       <ExpenseForm/>
     </div>
   );
+}
+
+function ViewExpenseByCategoryPage() {
+  let { tagName } = useParams();
+  console.log(tagName);
+  return <ViewExpenseByCategory tagName={tagName}/>
 }
 
 export default App;
