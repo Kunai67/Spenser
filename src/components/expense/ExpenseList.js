@@ -14,13 +14,24 @@ export default class ExpenseList extends Component {
     
     render() {
         return (
-            <ul>
-                {this.state.expenses.map(val => 
-                    <li key={val._id}>{val.name} : {val.cost.$numberDecimal}
-                        <button onClick={() => this.deleteById(val._id)}>X</button>
-                    </li>
-                )}
-            </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Cost</td>
+                            <td>Delete</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { this.state.expenses.map(val => 
+                            <tr key={val._id}>
+                                <td>{val.name}</td>
+                                <td>{val.cost.$numberDecimal}</td>
+                                <td><button onClick={() => this.deleteById(val._id)}>X</button></td>
+                            </tr>
+                        ) }
+                    </tbody>
+                </table>
         )
     }
 

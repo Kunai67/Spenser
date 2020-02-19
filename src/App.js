@@ -41,9 +41,9 @@ function App() {
 
 function Home() {
   return <div>
-    <h2>Home</h2>
-    <ExpenseList onMountURL='http://localhost:5000/expenses'/>
-  </div>;
+            <h2>Current Expenses</h2>
+            <ExpenseList onMountURL='http://localhost:5000/expenses'/>
+          </div>;
 }
 
 function CategoriesPage() {
@@ -61,7 +61,6 @@ function ExpensesPage() {
 
 function ViewExpenseByCategoryPage() {
   let { tagName } = useParams();
-  console.log(tagName);
   return <ViewExpenseByCategory tagName={tagName}/>
 }
 

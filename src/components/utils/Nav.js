@@ -4,17 +4,13 @@ import { Link } from 'react-router-dom';
 
 const StyledLink = styled(Link)`
     display: inline-block;
-    color: black;
-    padding: 1rem 2rem;
-    background: #40e0d0;
+    padding: 0 2rem;
     margin: .75rem;
-    border-radius: 20px;
     text-decoration: none;
 `;
 
 const StyledLi = styled.li`
     list-style: none;
-    display: inline-block;
 `;
 
 export default function Nav() {
