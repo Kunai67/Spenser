@@ -3,7 +3,7 @@ import ExpenseForm from './components/expense/ExpenseForm';
 import ExpenseList from './components/expense/ExpenseList';
 import Container from './components/utils/Container';
 import Nav from './components/utils/Nav';
-import Footer from './components/utils/Footer';
+// import Footer from './components/utils/Footer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,25 +16,27 @@ import ViewExpenseByCategory from './components/category/ViewExpenseByCategory';
 function App() {
   return (
     <Router>
-      <h1>Spenser</h1>
-      <Nav />
-      <Container>
-        <Switch>
-          <Route path="/categories/:tagName">
-            <ViewExpenseByCategoryPage />
-          </Route>
-          <Route path="/categories">
-            <CategoriesPage />
-          </Route>
-          <Route path="/expenses">
-            <ExpensesPage />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Container>
-      <Footer/>
+      <div className="flex">
+        <Nav />
+        <Container>
+          <h1>Spenser</h1>
+          <Switch>
+            <Route path="/categories/:tagName">
+              <ViewExpenseByCategoryPage />
+            </Route>
+            <Route path="/categories">
+              <CategoriesPage />
+            </Route>
+            <Route path="/expenses">
+              <ExpensesPage />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Container>
+      </div>
+      {/* <Footer/> */}
     </Router>
   )
 }

@@ -1,3 +1,5 @@
+// Defines a model for Category
+
 let mongoose = require('mongoose');
 
 let categorySchema = new mongoose.Schema({

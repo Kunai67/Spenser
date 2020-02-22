@@ -13,16 +13,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f0b0b9;
+  background: #eeeeee;
   background-repeat: no-repeat;
   background-size: cover;
-  color: #ffffff;
+  color: #000000;
   position: relative;
 }
 
 h1, h2, h3, h4, h5, h6, a {
   font-family: 'Fjalla One';
-  color: #ffffff;
+  color: #f0b0b9;
   font-weight: normal;
 }
 
@@ -33,24 +33,14 @@ code {
 
 h1 {
   font-size: 3rem;
-  text-align: center;
 }
 
 a, p {
   font-size: 1.8rem;
 }
 
-nav ul {
+.flex {
   display: flex;
-  justify-content: center;
-  padding: 0;
-}
-
-nav {
-  background: #8ac6d1;
-  position: sticky;
-  top: 0;
-  overflow: hidden;
 }
 
 @media (min-width: 320px) {

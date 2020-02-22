@@ -8,6 +8,7 @@ const StyledFooter = styled.footer`
     background: #8ac6d1;
     position: absolute;
     bottom: 0;
+    width: 100%;
 `;
 
 export default function Footer() {
