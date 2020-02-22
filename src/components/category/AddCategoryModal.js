@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class AddCategoryModal extends Component {
     constructor(props) {
@@ -13,20 +14,9 @@ export default class AddCategoryModal extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
     
-    componentDidMount() {
-        fetch('https://5e21946c6867a0001416f53a.mockapi.io/spenser/api/getCategories',
-        {
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-             }
-        })
-        .then((response) => {
-            return response.json();
-        })
-        .then((json) => {
-            this.setState({categories: json.category});
-        });
+    componentDidMount() {  
+        axios.get('http://localhost:5000/category/')
+        .then(res => this.setState({categories : res.data}));
     }
 
     onChange(e) {
@@ -37,7 +27,7 @@ export default class AddCategoryModal extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        this.props.setCategory({category: this.state.categoriesToBeAdded});
+        this.props.setCategory(this.state.categoriesToBeAdded);
     }
 
     render() {
@@ -47,12 +37,12 @@ export default class AddCategoryModal extends Component {
                 <div className="categories">
                     {
                         this.state.categories.map((category) => 
-                        <fieldset key={category}>
-                            <input type="checkbox" value={category} onClick={this.onChange} />{category}
+                        <fieldset key={category._id}>
+                            <input type="checkbox" value={category.name} onClick={this.onChange} />{category.name}
                         </fieldset>)
                     }
                 </div>
-                <button onClick={ this.onSubmit }>Submit</button>
+                <button onClick={ this.onSubmit }>Submit Categories</button>
             </div>
         )
     }

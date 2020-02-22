@@ -1,3 +1,5 @@
+// Defines a model for Expenses
+
 let mongoose = require('mongoose');
 
 let expenseSchema = new mongoose.Schema({

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import AddCategoryModal from './AddCategoryModal';
+import AddCategoryModal from '../category/AddCategoryModal';
+import axios from 'axios';
 
 export default class ExpenseForm extends Component {
     constructor(props) {
@@ -8,8 +9,8 @@ export default class ExpenseForm extends Component {
         this.state = {
              name: "",
              date: new Date(),
-             category: [],
-             cost: 0
+             tags: [],
+             cost: ""
         }
 
         this.submitExpense = this.submitExpense.bind(this);
@@ -19,8 +20,9 @@ export default class ExpenseForm extends Component {
 
     submitExpense(e) {
         e.preventDefault();
-        // AJAX Code to Send to DB
-        console.log(this.state);
+        axios.post('http://localhost:5000/expenses/add', this.state)
+        .then(response => console.log(response.data))
+        .catch(err => console.log(err));
     }
 
     onChange(e) {
@@ -30,7 +32,7 @@ export default class ExpenseForm extends Component {
     }
 
     changeCategory(categoryArr) {
-        this.setState({category: categoryArr});
+        this.setState({tags: categoryArr});
     }
     
     render() {
