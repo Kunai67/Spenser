@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import AddCategory from './components/category/AddCategory';
 import ViewExpenseByCategory from './components/category/ViewExpenseByCategory';
+import ExpenseGraph from './components/expense/ExpenseGraph';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
 function Home() {
   return <div>
             <h2>Current Expenses</h2>
+            <ExpenseGraph />
             <ExpenseList onMountURL='http://localhost:5000/expenses'/>
           </div>;
 }
