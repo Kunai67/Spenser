@@ -28,6 +28,9 @@ function App() {
             <Route path="/categories">
               <CategoriesPage />
             </Route>
+            <Route>
+              <ExpenseGraphPage />
+            </Route>
             <Route path="/expenses">
               <ExpensesPage />
             </Route>
@@ -45,7 +48,6 @@ function App() {
 function Home() {
   return <div>
             <h2>Current Expenses</h2>
-            <ExpenseGraph />
             <ExpenseList onMountURL='http://localhost:5000/expenses'/>
           </div>;
 }
@@ -61,6 +63,12 @@ function ExpensesPage() {
       <ExpenseForm/>
     </div>
   );
+}
+
+function ExpenseGraphPage() {
+  return (
+    <ExpenseGraph/>
+  )
 }
 
 function ViewExpenseByCategoryPage() {

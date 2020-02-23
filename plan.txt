@@ -1,0 +1,25 @@
+Home Page
+=========
+- Introduces the expense tracker
+- Shows screenshots
+- Has login button using Google or Facebook
+
+Expenses Page
+=============
+Has table of expenses and their cost
+- Can be sorted on ascending or descending by cost
+- Can be sorted on ascending or descending by date
+- Click on expense name to pull a modal that will update or delete the expense
+
+Has add new expense button
+- Click to pull a modal that will add an expense
+
+Graph Page
+==========
+Has a pie graph of expenses
+- With percent and absolute cost
+
+Can be picked for:
+- Daily
+- Weekly
+- By Category

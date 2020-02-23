@@ -22,7 +22,6 @@ const StyledNav = styled.nav`
     position: sticky;
     top: 0;
     border-radius: 1.5rem;
-    margin: .75rem;
     padding: 1rem;
     width: 30%;
 `;

@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
-const port = 27017;
+const port = process.env.DB_PORT || 27017;
+const serverPort = process.env.SERVER_PORT || 5000;
 
 const app = express();
 app.use(express.json());
@@ -20,7 +22,7 @@ const categoryRouter = require('./routes/category');
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', `http://localhost:${process.env.APP_PORT || 3000}`);
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -39,4 +41,4 @@ app.use(function (req, res, next) {
 app.use('/expenses', expenseRouter);
 app.use('/category', categoryRouter);
 
-app.listen(5000, () => `Listening on port: 5000`);
+app.listen(serverPort, () => `Listening on port: ${serverPort}`);
