@@ -1,18 +1,20 @@
 import React from 'react';
-import ExpenseForm from './components/expense/ExpenseForm';
-import ExpenseList from './components/expense/ExpenseList';
-import Container from './components/utils/Container';
-import Nav from './components/utils/Nav';
-// import Footer from './components/utils/Footer';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useParams,
-} from "react-router-dom";
-import AddCategory from './components/category/AddCategory';
-import ViewExpenseByCategory from './components/category/ViewExpenseByCategory';
-import ExpenseGraph from './components/expense/ExpenseGraph';
+
+// Import Expense Components
+import { ExpenseForm, ExpenseGraph, ExpenseList } from "./components/expense/expense.export";
+
+// Import Category Components
+import { AddCategory, ViewExpenseByCategory } from "./components/category/category.export";
+
+// Import Utility Components
+import { Container, Nav } from "./components/utils/utils.export";
+
+// Import from React Router
+import { BrowserRouter as Router, Switch, Route, useParams } from "react-router-dom";
+
+// Import Pages
+import { CategoryPage, ExpensePage, GraphPage, HomePage } from "./pages/pages.export";
+
 
 function App() {
   return (
@@ -26,48 +28,21 @@ function App() {
               <ViewExpenseByCategoryPage />
             </Route>
             <Route path="/categories">
-              <CategoriesPage />
+              <CategoryPage />
             </Route>
             <Route>
-              <ExpenseGraphPage />
+              <GraphPage />
             </Route>
             <Route path="/expenses">
-              <ExpensesPage />
+              <ExpensePage />
             </Route>
             <Route path="/">
-              <Home />
+              <HomePage />
             </Route>
           </Switch>
         </Container>
       </div>
-      {/* <Footer/> */}
     </Router>
-  )
-}
-
-function Home() {
-  return <div>
-            <h2>Current Expenses</h2>
-            <ExpenseList onMountURL='http://localhost:5000/expenses'/>
-          </div>;
-}
-
-function CategoriesPage() {
-  return <AddCategory />
-}
-
-function ExpensesPage() {
-  return (
-    <div>
-      <h2>Add New Expense</h2>
-      <ExpenseForm/>
-    </div>
-  );
-}
-
-function ExpenseGraphPage() {
-  return (
-    <ExpenseGraph/>
   )
 }
 
