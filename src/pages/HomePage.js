@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import ExpenseList from '../components/expense/ExpenseList';
 
 export default function HomePage() {
     return (

@@ -1,10 +1,7 @@
 import React from 'react';
 
-// Import Expense Components
-import { ExpenseForm, ExpenseGraph, ExpenseList } from "./components/expense/expense.export";
-
 // Import Category Components
-import { AddCategory, ViewExpenseByCategory } from "./components/category/category.export";
+import { ViewExpenseByCategory } from "./components/category/category.export";
 
 // Import Utility Components
 import { Container, Nav } from "./components/utils/utils.export";

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import ExpenseForm from "../components/expense/ExpenseForm";
 
 export default function ExpensePage() {
     return (
