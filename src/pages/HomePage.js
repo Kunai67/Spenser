@@ -83,6 +83,11 @@ const Waves = styled.img`
     }
 `;
 
+const GoogleButton = styled.div`
+    margin: 0 auto;
+    display: inline-block;
+`;
+
 export default function HomePage() {
     return (
         <div>
@@ -109,7 +114,8 @@ export default function HomePage() {
             <Waves src={WaveOneLink} alt="Wave"/>
             <BlueContainer>
                 <SectionHeading color="#79e5e5">GET STARTED BELOW</SectionHeading>
-                <SectionText color="#FBFBFF">Login or Sign Up using Google or Facebook</SectionText>
+                <SectionText color="#FBFBFF">Login or Sign Up using Google</SectionText>
+                <GoogleButton className="g-signin2" data-onsuccess="onSignIn" />
             </BlueContainer>
             <img src={WaveTwoLink} alt="Wave"/>
             <Footer />
