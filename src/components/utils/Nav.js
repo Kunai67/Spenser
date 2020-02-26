@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import LogoPath from "../../res/cherry-tree.png";
-import HomeLogoPath from "../../res/sydney-opera-house.svg";
-import ExpenseLogoPath from "../../res/invoice.svg";
-import CategoriesLogoPath from "../../res/list.svg";
+import MenuIconLink from '../../res/method-draw-image.svg';
 
 const StyledLink = styled(Link)`
     display: inline-block;
     margin: .75rem;
     text-decoration: none;
     text-align: center;
+    color: #0b4f6c;
+    font-family: 'Roboto Condensed';
+    letter-spacing: 1.2px;
 `;
 
 const StyledLi = styled.li`
@@ -18,42 +18,58 @@ const StyledLi = styled.li`
 `;
 
 const StyledNav = styled.nav`
-    background: #381460;
-    position: sticky;
-    top: 0;
+    background: transparent;
     border-radius: 1.5rem;
-    padding: 1rem;
-    width: 30%;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
 `;
 
 const StyledUl = styled.ul`
-    display: flex;
-    flex-flow: column;
-    align-items: center;
     padding: 0;
+    @media screen and (min-width: 320px) and (max-width: 768px) {
+      display: none;
+      position: absolute;
+      width: 100%;
+      right: 0;
+      bottom: -150%;
+      text-align: right;
+      padding: 2rem;
+      background: #FBFBFF;
+    }
 `;
 
-const Logo = styled.img`
-    width: 100%;
+const Brand = styled.p`
+  font-size: 3rem;
+  color: #0b4f6c;
+  font-family: 'Nunito';
+  font-weight: 700;
 `;
 
-const NavIcons = styled.img`
-    width: 50%;
+const MenuIcon = styled.img`
+  max-width: 100%;
+  display: none;
+  @media screen and (min-width: 320px) and (max-width: 768px) {
+    display: inline-block;
+  }
 `;
 
 export default function Nav() {
     return (
       <StyledNav>
-        <Logo src={LogoPath} alt="Logo"/>
+        <Brand>Spenser</Brand>
+        <MenuIcon src={ MenuIconLink } />
         <StyledUl>
           <StyledLi>
-            <StyledLink to="/"><NavIcons src={HomeLogoPath} alt="Home"/></StyledLink>
+            <StyledLink to="/">Home</StyledLink>
           </StyledLi>
           <StyledLi>
-            <StyledLink to="/expenses"><NavIcons src={ExpenseLogoPath} alt="Expenses"/></StyledLink>
+            <StyledLink to="/expenses">Expenses</StyledLink>
           </StyledLi>
           <StyledLi>
-            <StyledLink to="/categories"><NavIcons src={CategoriesLogoPath} alt="Categories"/></StyledLink>
+            <StyledLink to="/categories">Categories</StyledLink>
           </StyledLi>
         </StyledUl>
       </StyledNav>

@@ -12,6 +12,7 @@ let CanvasContainer = styled.div`
     padding: 2rem 5vw;
     border-radius: 2rem;
     background: #f0b0b9;
+    overflow: hidden;
 `;
 
 let GraphTitle = styled.h2`

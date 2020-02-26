@@ -4,17 +4,20 @@ import styled from 'styled-components';
 const StyledFooter = styled.footer`
     padding: 1rem;
     text-align: center;
-    font-family: 'Fjalla One';
-    background: #8ac6d1;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    background: transparent;
+    max-width: 100%;
+    padding: 3rem 0;
+    margin-top: -5rem;
+`;
+
+const FooterText = styled.p`
+    color: #0b4f6c;
 `;
 
 export default function Footer() {
     return (
         <StyledFooter>
-            <p>Created on January 14, 2020. All rights reserved &copy; 2020.</p>
+            <FooterText>Created on January 14, 2020. <br />All rights reserved &copy; 2020.</FooterText>
         </StyledFooter>
     )
 }

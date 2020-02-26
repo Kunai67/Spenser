@@ -4,7 +4,7 @@ import React from 'react';
 import { ViewExpenseByCategory } from "./components/category/category.export";
 
 // Import Utility Components
-import { Container, Nav } from "./components/utils/utils.export";
+import { Nav } from "./components/utils/utils.export";
 
 // Import from React Router
 import { BrowserRouter as Router, Switch, Route, useParams } from "react-router-dom";
@@ -16,10 +16,8 @@ import { CategoryPage, ExpensePage, GraphPage, HomePage } from "./pages/pages.ex
 function App() {
   return (
     <Router>
-      <div className="flex">
+      <div>
         <Nav />
-        <Container>
-          <h1>Spenser</h1>
           <Switch>
             <Route path="/categories/:tagName">
               <ViewExpenseByCategoryPage />
@@ -27,7 +25,7 @@ function App() {
             <Route path="/categories">
               <CategoryPage />
             </Route>
-            <Route>
+            <Route path="/graph">
               <GraphPage />
             </Route>
             <Route path="/expenses">
@@ -37,7 +35,6 @@ function App() {
               <HomePage />
             </Route>
           </Switch>
-        </Container>
       </div>
     </Router>
   )
