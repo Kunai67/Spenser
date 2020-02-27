@@ -16,26 +16,24 @@ import { CategoryPage, ExpensePage, GraphPage, HomePage } from "./pages/pages.ex
 function App() {
   return (
     <Router>
-      <div>
         <Nav />
-          <Switch>
-            <Route path="/categories/:tagName">
-              <ViewExpenseByCategoryPage />
-            </Route>
-            <Route path="/categories">
-              <CategoryPage />
-            </Route>
-            <Route path="/graph">
-              <GraphPage />
-            </Route>
-            <Route path="/expenses">
-              <ExpensePage />
-            </Route>
-            <Route path="/">
-              <HomePage />
-            </Route>
-          </Switch>
-      </div>
+        <Switch>
+          <Route path="/categories/:tagName">
+            <ViewExpenseByCategoryPage />
+          </Route>
+          <Route path="/categories">
+            <CategoryPage />
+          </Route>
+          <Route path="/graph">
+            <GraphPage />
+          </Route>
+          <Route path="/expenses">
+            <ExpensePage />
+          </Route>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
     </Router>
   )
 }

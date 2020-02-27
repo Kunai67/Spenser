@@ -27,7 +27,12 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700|Roboto+Condensed|Roboto:400,700&display=swap" rel="stylesheet">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script>
+      gapi.load('auth2', function(){
+        gapi.auth2.init();
+      })
+    </script>
     <title>Spenser - Expense Tracker</title>
   </head>
   <body>

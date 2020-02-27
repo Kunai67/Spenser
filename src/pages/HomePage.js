@@ -4,7 +4,7 @@ import WaveOneLink from '../../src/res/wave.svg';
 import WaveTwoLink from '../../src/res/wave (1).svg';
 import IllustrationOne from '../../src/res/undraw_Credit_card_3ed6 (1).svg';
 import IllustrationTwo from '../../src/res/undraw_segmentation_uioo.svg';
-import Footer from '../../src/components/utils/Footer'; 
+import Footer from '../../src/components/utils/Footer';
 
 const BlueContainer = styled.div`
     background: #0b4f6c;
@@ -77,15 +77,7 @@ const SectionIllustration = styled.img`
 `;
 
 const Waves = styled.img`
-    @media screen and (min-width: 1024px) {
-        margin-top: -5rem;
-        margin-bottom: -9rem;
-    }
-`;
-
-const GoogleButton = styled.div`
-    margin: 0 auto;
-    display: inline-block;
+    width: 100%;
 `;
 
 export default function HomePage() {
@@ -115,7 +107,6 @@ export default function HomePage() {
             <BlueContainer>
                 <SectionHeading color="#79e5e5">GET STARTED BELOW</SectionHeading>
                 <SectionText color="#FBFBFF">Login or Sign Up using Google</SectionText>
-                <GoogleButton className="g-signin2" data-onsuccess="onSignIn" />
             </BlueContainer>
             <img src={WaveTwoLink} alt="Wave"/>
             <Footer />

@@ -5,7 +5,7 @@ import MenuIconLink from '../../res/method-draw-image.svg';
 
 const StyledLink = styled(Link)`
     display: inline-block;
-    margin: .75rem;
+    margin: .75rem 3rem;
     text-decoration: none;
     text-align: center;
     color: #0b4f6c;
@@ -25,6 +25,7 @@ const StyledNav = styled.nav`
     flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
+    align-content: center;
 `;
 
 const StyledUl = styled.ul`
@@ -38,6 +39,10 @@ const StyledUl = styled.ul`
       text-align: right;
       padding: 2rem;
       background: #FBFBFF;
+    }
+
+    @media screen and (min-width: 769px) {
+      display: flex;
     }
 `;
 

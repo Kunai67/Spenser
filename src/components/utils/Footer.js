@@ -8,6 +8,8 @@ const StyledFooter = styled.footer`
     max-width: 100%;
     padding: 3rem 0;
     margin-top: -5rem;
+    font-weight: 700;
+    letter-spacing: 1.2px
 `;
 
 const FooterText = styled.p`
