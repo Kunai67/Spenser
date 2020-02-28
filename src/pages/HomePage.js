@@ -1,10 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import WaveOneLink from '../../src/res/wave.svg';
 import WaveTwoLink from '../../src/res/wave (1).svg';
 import IllustrationOne from '../../src/res/undraw_Credit_card_3ed6 (1).svg';
 import IllustrationTwo from '../../src/res/undraw_segmentation_uioo.svg';
 import Footer from '../../src/components/utils/Footer';
+import { fadeInLeft, fadeInRight } from "react-animations";
+
+// USE https://www.npmjs.com/package/react-social-login TO AUTHENTICATE AND RESTRICT ROUTES
+
+const fadeInLeftKF = keyframes `${ fadeInLeft }`;
+const fadeInRightKF = keyframes `${ fadeInRight }`;
 
 const BlueContainer = styled.div`
     background: #0b4f6c;
@@ -27,6 +33,7 @@ const Wrapper = styled.div`
     flex-flow: column wrap;
     align-content: center;
     text-align: ${props => props.reverse ? "right" : "left"};
+    animation: 1.5s ${props => props.reverse ? fadeInRightKF : fadeInLeftKF };
 
     @media screen and (min-width: 600px) {
         flex-flow: ${props => props.reverse ? "row-reverse" : "row"} nowrap;
