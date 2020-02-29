@@ -31,7 +31,6 @@ const WhiteContainer = styled.div`
 const Wrapper = styled.div`
     display: flex;
     flex-flow: column wrap;
-    align-content: center;
     text-align: ${props => props.reverse ? "right" : "left"};
     animation: 1.5s ${props => props.reverse ? fadeInRightKF : fadeInLeftKF };
 
@@ -68,11 +67,10 @@ const SectionText = styled.p`
 `;
 
 const SectionIllustration = styled.img`
-    width: 70;
+    width: 70%;
+    margin: 0 auto;
 
     @media screen and (min-width: 600px) {
-        flex-flow: row nowrap;
-        align-items: center;
         width: 60%;
         max-width: 30rem;
         margin: 0 3rem;

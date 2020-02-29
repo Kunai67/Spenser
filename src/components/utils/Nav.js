@@ -11,6 +11,10 @@ const StyledLink = styled(Link)`
     color: #0b4f6c;
     font-family: 'Roboto Condensed';
     letter-spacing: 1.2px;
+
+    @media screen and (min-width: 320px) and (max-width: 768px) {
+      margin: .75rem 1rem;
+    }
 `;
 
 const StyledLi = styled.li`
@@ -31,8 +35,10 @@ const StyledNav = styled.nav`
 const StyledUl = styled.ul`
     padding: 0;
     @media screen and (min-width: 320px) and (max-width: 768px) {
-      display: none;
+      opacity: ${ props => props.display === 'false' ? 0 : 100 };
+      transition: 500ms opacity ease;
       position: absolute;
+      z-index: 1000;
       width: 100%;
       right: 0;
       bottom: -150%;
@@ -61,22 +67,57 @@ const MenuIcon = styled.img`
   }
 `;
 
+// function ResponsiveLinks(props) {
+//   const [display, setDisplay] = useState("none");
+
+//   return (
+//     <div>
+//       <MenuIcon src={ MenuIconLink } onClick={ () => setDisplay(display === 'none' ? 'none' : 'block') } />
+//       <StyledUl display={ display }>
+//         { props.children }
+//       </StyledUl>
+//     </div>
+//   )
+// }
+
+class ResponsiveLinks extends React.Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       isShown: false
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <MenuIcon src={ MenuIconLink } onClick={ () => this.setState({ isShown: !this.state.isShown }) } />
+        <StyledUl display={ this.state.isShown.toString() }>
+          { this.props.children }
+        </StyledUl>
+      </div>
+    )
+  } 
+}
+
+
+
 export default function Nav() {
     return (
       <StyledNav>
         <Brand>Spenser</Brand>
-        <MenuIcon src={ MenuIconLink } />
-        <StyledUl>
+        <ResponsiveLinks>
           <StyledLi>
-            <StyledLink to="/">Home</StyledLink>
-          </StyledLi>
-          <StyledLi>
-            <StyledLink to="/expenses">Expenses</StyledLink>
-          </StyledLi>
-          <StyledLi>
-            <StyledLink to="/categories">Categories</StyledLink>
-          </StyledLi>
-        </StyledUl>
+              <StyledLink to="/">Home</StyledLink>
+            </StyledLi>
+            <StyledLi>
+              <StyledLink to="/expenses">Expenses</StyledLink>
+            </StyledLi>
+            <StyledLi>
+              <StyledLink to="/categories">Categories</StyledLink>
+            </StyledLi>
+        </ResponsiveLinks>
       </StyledNav>
     )
 }

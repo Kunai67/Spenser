@@ -7,7 +7,7 @@ const StyledFooter = styled.footer`
     background: transparent;
     max-width: 100%;
     padding: 3rem 0;
-    margin-top: -5rem;
+    margin-top: -3rem;
     font-weight: 700;
     letter-spacing: 1.2px
 `;
