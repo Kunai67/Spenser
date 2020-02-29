@@ -36,13 +36,14 @@ const StyledUl = styled.ul`
     padding: 0;
     @media screen and (min-width: 320px) and (max-width: 768px) {
       opacity: ${ props => props.display === 'false' ? 0 : 100 };
-      transition: 500ms opacity ease;
+      width: ${ props => props.display === 'false' ? 0 : '30vw' };
+      height: 100vh;
+      overflow: hidden;
+      transition: 750ms opacity ease, 500ms width ease;
       position: absolute;
       z-index: 1000;
-      width: 100%;
       right: 0;
-      bottom: -150%;
-      text-align: right;
+      text-align: center;
       padding: 2rem;
       background: #FBFBFF;
     }
@@ -67,19 +68,6 @@ const MenuIcon = styled.img`
   }
 `;
 
-// function ResponsiveLinks(props) {
-//   const [display, setDisplay] = useState("none");
-
-//   return (
-//     <div>
-//       <MenuIcon src={ MenuIconLink } onClick={ () => setDisplay(display === 'none' ? 'none' : 'block') } />
-//       <StyledUl display={ display }>
-//         { props.children }
-//       </StyledUl>
-//     </div>
-//   )
-// }
-
 class ResponsiveLinks extends React.Component {
   constructor(props) {
     super(props)
@@ -101,8 +89,6 @@ class ResponsiveLinks extends React.Component {
   } 
 }
 
-
-
 export default function Nav() {
     return (
       <StyledNav>
@@ -116,6 +102,9 @@ export default function Nav() {
             </StyledLi>
             <StyledLi>
               <StyledLink to="/categories">Categories</StyledLink>
+            </StyledLi>
+            <StyledLi>
+              <StyledLink to="/graph">Graph</StyledLink>
             </StyledLi>
         </ResponsiveLinks>
       </StyledNav>

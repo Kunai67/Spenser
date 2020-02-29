@@ -1,8 +1,13 @@
+DONE:
+
 Home Page
 =========
 - Introduces the expense tracker
 - Shows screenshots
 - Has login button using Google or Facebook
+
+
+TODO:
 
 Expenses Page
 =============
